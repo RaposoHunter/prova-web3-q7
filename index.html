@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Questão 7 - Prova de Web</title>
+        <link rel="stylesheet" href="./assets/fontawesome/css/font-awesome.min.css">
+        <style>
+            .btn {
+                margin-top: 1em;
+            }
+
+            #results {
+                margin-top: 1em;
+            }
+
+            table {
+                border: 1px solid black;
+            }
+
+            td {
+                padding: 0.5em;
+            }
+
+            th {
+                border-bottom: 1px solid black;
+            }
+
+            th:first-of-type {
+                border-right: 1px solid black;
+            }
+
+            td {
+                border-bottom: 1px solid grey;
+            }
+
+            tbody tr.last td {
+                border-bottom: none;
+            }
+
+            tbody tr>td:first-child {
+                border-right: 1px solid grey;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Informe os seguintes dados:</h1>
+
+        <label for="q">O que gostaria de pesquisar:</label>
+        <input type="text" name="q" id="q" placeholder="Pesquisar..."><small id="error_q" style="margin-left: 6px; color: red" hidden>Campo Obrigatório</small><br>
+        <label for="lr">Pesquisar na linguagem:</label>
+        <select name="lr" id="lr">
+            <option value="lang_pt">Portugûes</option>
+            <option value="lang_en">Inglês</option>
+            <option value="lang_de">Alemão</option>
+            <option value="lang_ru">Russo</option>
+            <option value="lang_af">Africâner</option>
+            <option value="lang_es">Espanhol</option>
+        </select><small id="error_lr" style="margin-left: 6px; color: red" hidden>Campo Obrigatório</small><br>
+        <label for="n">Número de links a serem salvos:</label>
+        <input type="number" name="n" id="n" min="2" max="10"><small id="error_n" style="margin-left: 6px; color: red" hidden>Campo Obrigatório</small><br>
+        <button onclick="sendRequest()" class="btn">Pesquisar&nbsp;<i class="fa fa-search"></i></button>
+        <button onclick="saveSearch()" id="save_btn" class="btn" title="Ao fim da requisição, clique aqui para salvar os resultados disponibilizados abaixo" disabled>Salvar&nbsp;<i class="fa fa-floppy-o"></i></button>
+        <button onclick="window.open('./results')" id="download_btn" class="btn" title="Ao salvar os dados, clique aqui para baixar os resultados disponibilizados abaixo" disabled>Download&nbsp;<i class="fa fa-download"></i></button>
+
+        <script src="./assets/js/formatInputs.js"></script>
+        <script src="./assets/js/search.js"></script>
+        <script src="./assets/js/saveSearch.js"></script>
+        <div id="results" hidden>
+            <h2><span id="results_length"></span> resultados para a busca por <span id="results_query"></span></h2>
+            <input type="hidden" name="query-input" id="query-input">
+            <input type="hidden" name="language-input" id="language-input">
+            <input type="hidden" name="date-input" id="date-input">
+            <table>
+                <thead>
+                    <th>Título</th>
+                    <th>Link</th>
+                </thead>
+                <tbody id="results_body">
+                    
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

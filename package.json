@@ -1,0 +1,17 @@
+{
+  "name": "prova-web-3-questao-7-ufrrj",
+  "version": "1.0.0",
+  "description": "API de busca personalizável",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "googleapis": "^92.0.0"
+  }
+}
